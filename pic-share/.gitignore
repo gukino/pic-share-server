@@ -1,37 +1,4 @@
-# Compiled class file
-*.class
-
-# Intellij
-*.ipr
-*.iml
-*.iws
-.idea/
-
-# Maven
-target/
-
-# Gradle
-build
-.gradle
-
-# Log file
-*.log
-log/
-
-# out
-**/out/
-
-
-# others
-*.jar
-*.war
-*.zip
-*.tar
-*.tar.gz
-*.pid
-*.orig
-temp/
-
+HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -61,3 +28,6 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+
+### VS Code ###
+.vscode/
