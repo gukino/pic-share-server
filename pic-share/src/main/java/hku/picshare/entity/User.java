@@ -11,7 +11,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- *
+ * @Author hqj
+ * 用户实体类
  */
 
 @Entity
