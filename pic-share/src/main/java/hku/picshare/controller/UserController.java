@@ -1,5 +1,6 @@
 package hku.picshare.controller;
 
+
 import hku.picshare.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +17,8 @@ public class UserController {
 
     @RequestMapping(value = "/get")
     public void getUser(int id){
+        System.out.println(userService.getById(id));
 
-        System.out.println(userService.getUserById(1).toString());
     }
 
 }

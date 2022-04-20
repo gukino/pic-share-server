@@ -1,5 +1,7 @@
 package hku.picshare;
 
+import hku.picshare.entity.User;
+import hku.picshare.mapper.UserMapper;
 import hku.picshare.service.UserService;
 import org.junit.After;
 import org.junit.Before;
@@ -8,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 /**
  *
@@ -18,7 +22,6 @@ public class UserServiceTest {
 
     @Autowired
     UserService userService;
-
     @Before
     public void before() throws Exception {
     }
@@ -29,7 +32,8 @@ public class UserServiceTest {
 
     @Test
     public void testgetUser() throws Exception {
-        System.out.println(userService.getUserById(1).toString());
+        User user = userService.getById(1);
+        System.out.println(user);
 
     }
 }

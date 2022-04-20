@@ -7,49 +7,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @Author hqj
  * 用户实体类
  */
 
-@Entity
-@Getter
-@Setter
-@Table(name = "user")
+
+@Data
+@ToString
 public class User implements Serializable {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private int id;
-
-    @Column(name = "name")
+    @TableId(type = IdType.AUTO)
+    private Integer id;
     private String name;
-
-    @Column(name = "email")
     private String email;
-
-    @Column(name = "desc")
-    private String desc;
-
-    @Column(name = "pwd")
+    private String description;
     private String pwd;
-
-    @Column(name = "avatar")
     private String avatar;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", desc='" + desc + '\'' +
-                ", pwd='" + pwd + '\'' +
-                ", avatar='" + avatar + '\'' +
-                '}';
-    }
+
 }
