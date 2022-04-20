@@ -41,5 +41,15 @@ public class User implements Serializable {
     @Column(name = "avatar")
     private String avatar;
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", desc='" + desc + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", avatar='" + avatar + '\'' +
+                '}';
+    }
 }
