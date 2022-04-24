@@ -31,9 +31,14 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testgetUser() throws Exception {
-        User user = userService.getById(1);
-        System.out.println(user);
-
+    public void testAddUser() throws Exception {
+        User user = new User("hqj2","375664705@qq.com","addtest","123","0");
+        System.out.println(userService.newUser(user));
     }
+
+    @Test
+    public void testQueryUser() throws Exception {
+        System.out.println(userService.getUserById(1).toString());
+    }
+
 }
