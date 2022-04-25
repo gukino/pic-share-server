@@ -1,9 +1,11 @@
 package hku.picshare.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.ToString;
+import org.apache.ibatis.type.JdbcType;
 
 /**
  * @author yhp
@@ -15,7 +17,7 @@ import lombok.ToString;
 public class Form {
     @TableId(type = IdType.AUTO)
     private Integer id;
-    private Integer user_id;
+    @TableField(value = "user_id")
+    private Integer userId = 0;
     private String description;
-
 }

@@ -1,5 +1,6 @@
 package hku.picshare.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.ToString;
 
@@ -12,6 +13,7 @@ import lombok.ToString;
 @ToString
 public class photo {
     private Integer id;
-    private Integer form_id;
+    @TableField(value = "form_id")
+    private Integer formId;
     private String url;
 }
