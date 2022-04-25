@@ -1,6 +1,7 @@
 package hku.picshare.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import hku.picshare.entity.*;
 import hku.picshare.mapper.*;
 import hku.picshare.util.RequestMsg;
@@ -29,7 +30,9 @@ public class ListController {
 
     private List<FormItem> getAllForm() {
         List<FormItem> retList = new ArrayList<>();
-        List<Form> formList = formMapper.selectList(null);
+        QueryWrapper<Form> wrapper = new QueryWrapper<>();
+        wrapper.orderByDesc("id");
+        List<Form> formList = formMapper.selectList(wrapper);
         for (Form formO : formList) {
             FormItem item = new FormItem();
             item.user = userMapper.selectById(formO.getUserId());
