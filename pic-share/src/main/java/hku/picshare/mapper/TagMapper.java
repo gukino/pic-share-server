@@ -1,7 +1,7 @@
 package hku.picshare.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import hku.picshare.entity.tag;
+import hku.picshare.entity.Tag;
 import org.springframework.stereotype.Repository;
 
 
@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  * @create 2022-04-20 23:07
  */
 @Repository
-public interface TagMapper extends BaseMapper<tag> {
+public interface TagMapper extends BaseMapper<Tag> {
 }

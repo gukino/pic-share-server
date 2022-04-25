@@ -11,7 +11,7 @@ import lombok.ToString;
  */
 @Data
 @ToString
-public class photo {
+public class Photo {
     private Integer id;
     @TableField(value = "form_id")
     private Integer formId;

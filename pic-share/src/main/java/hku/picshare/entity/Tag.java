@@ -10,7 +10,7 @@ import lombok.ToString;
  */
 @Data
 @ToString
-public class tag {
+public class Tag {
     private Integer id;
     private String name;
 }

@@ -7,7 +7,6 @@ import hku.picshare.util.RequestMsg;
 import hku.picshare.util.ResponseMsg;
 import hku.picshare.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,13 +40,13 @@ public class ListController {
             formTagQuery.put("form_id", formO.getId());
             List<FormTag> formTagList = formTagMapper.selectByMap(formTagQuery);
             for (FormTag formTag: formTagList) {
-                tag tag = tagMapper.selectById(formTag.getTagId());
+                Tag tag = tagMapper.selectById(formTag.getTagId());
                 item.tags.add(tag);
             }
 
             Map<String, Object> photoQuery = new HashMap<>();
             photoQuery.put("form_id", formO.getId());
-            List<photo> photoList = photoMapper.selectByMap(photoQuery);
+            List<Photo> photoList = photoMapper.selectByMap(photoQuery);
             item.imageUrl = photoList.get(0).getUrl();
             retList.add(item);
         }
@@ -71,7 +70,7 @@ public class ListController {
         while (itemIterator.hasNext()) {
             FormItem item = itemIterator.next();
             boolean fitTag = false;
-            for (tag tag: item.tags) {
+            for (Tag tag: item.tags) {
                 if (tag.getName().contains(requestMsg.searchText)) {
                     fitTag = true;
                 }
@@ -98,10 +97,10 @@ public class ListController {
         form.setUserId(user.getId());
         form.setDescription(formItem.content);
         int formRet = formMapper.insert(form);
-        for (tag tag: formItem.tags) {
+        for (Tag tag: formItem.tags) {
             Map<String, Object> tagQuery = new HashMap<>();
             tagQuery.put("name", tag.getName());
-            List<tag> existTagList = tagMapper.selectByMap(tagQuery);
+            List<Tag> existTagList = tagMapper.selectByMap(tagQuery);
             if (existTagList == null || existTagList.isEmpty()) {
                 tagMapper.insert(tag);
             } else {
@@ -112,7 +111,7 @@ public class ListController {
             formTag.setTagId(tag.getId());
             formTagMapper.insert(formTag);
         }
-        photo photo = new photo();
+        Photo photo = new Photo();
         photo.setFormId(form.getId());
         photo.setUrl(formItem.imageUrl);
         photoMapper.insert(photo);
@@ -140,6 +139,6 @@ public class ListController {
         public int id;
         public String content;
         public String imageUrl;
-        public List<tag> tags = new ArrayList<>();
+        public List<Tag> tags = new ArrayList<>();
     }
 }
