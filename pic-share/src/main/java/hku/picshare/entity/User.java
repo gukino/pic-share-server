@@ -1,17 +1,9 @@
 package hku.picshare.entity;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.Getter;
@@ -26,13 +18,14 @@ import lombok.ToString;
 
 @Data
 @ToString
+@Getter
+@Setter
 public class User implements Serializable {
 
     @TableId(type = IdType.AUTO)
     private Integer id;
     private String name;
     private String email;
-    @TableField("`desc`")
     private String description;
     @JsonProperty("password")
     private String pwd;

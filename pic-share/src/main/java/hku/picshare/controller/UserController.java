@@ -22,7 +22,7 @@ public class UserController {
 
     @RequestMapping(value = "/register")
     @ResponseBody
-    public ResponseMsg newUser(@RequestBody RequestMsg requestMsg){
+    public ResponseMsg register(@RequestBody RequestMsg requestMsg){
         return userService.newUser(requestMsg.user);
     }
 
