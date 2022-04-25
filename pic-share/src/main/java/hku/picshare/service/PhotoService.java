@@ -1,12 +1,12 @@
 package hku.picshare.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import hku.picshare.entity.tag;
+import hku.picshare.entity.photo;
 
 /**
  * @author yhp
  *
  */
-public interface tagService extends IService<tag>{
+public interface PhotoService extends IService<photo>{
 
 }
