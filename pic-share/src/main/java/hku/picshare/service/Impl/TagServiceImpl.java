@@ -2,7 +2,7 @@ package hku.picshare.service.Impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import hku.picshare.entity.tag;
-import hku.picshare.mapper.tagMapper;
+import hku.picshare.mapper.TagMapper;
 import hku.picshare.service.TagService;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  *
  */
 @Service
-public class TagServiceImpl extends ServiceImpl<tagMapper, tag> implements TagService {
+public class TagServiceImpl extends ServiceImpl<TagMapper, tag> implements TagService {
 
 
 
