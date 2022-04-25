@@ -28,8 +28,8 @@ public class UserController {
 
     @RequestMapping(value = "/login")
     @ResponseBody
-    public ResponseMsg UserLogin(String email,String pwd){
-        return userService.login(email,pwd);
+    public ResponseMsg UserLogin(@RequestBody RequestMsg requestMsg){
+        return userService.login(requestMsg.user.getEmail(),requestMsg.user.getPwd());
     }
 
 }

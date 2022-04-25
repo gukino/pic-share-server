@@ -45,7 +45,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if (list.size() > 0){
             for (User user : list){
                 if (user.getPwd().equals(pwd)){
-                    return new ResponseMsg(Result.SUCCESS);
+                    ResponseMsg ret = new ResponseMsg(Result.SUCCESS);
+                    ret.user = user;
+                    return ret;
                 }
             }
             return new ResponseMsg(Result.FAIL,"password not correct.");
