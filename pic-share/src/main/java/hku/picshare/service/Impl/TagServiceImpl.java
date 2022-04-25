@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  *
  */
 @Service
-public class tagServiceImpl extends ServiceImpl<tagMapper, tag> implements TagService {
+public class TagServiceImpl extends ServiceImpl<tagMapper, tag> implements TagService {
 
 
 
