@@ -24,6 +24,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public ResponseMsg newUser(User user) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("email", user.getEmail());
+        List<User> list = userMapper.selectByMap(map);
+        if (!list.isEmpty()) {
+            return new ResponseMsg(Result.FAIL, "email already exist");
+        }
         int ret = userMapper.insert(user);
         if (ret != 1){
             return new ResponseMsg(Result.FAIL,"sql fail");
